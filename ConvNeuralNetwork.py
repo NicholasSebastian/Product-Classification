@@ -28,7 +28,7 @@ model.add(Activation("relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
-model.add(Conv2D(128, (3, 3)))
+model.add(Conv2D(96, (3, 3)))
 model.add(Activation("relu"))
 model.add(Dropout(0.4))
 
@@ -47,7 +47,7 @@ model.compile(loss="categorical_crossentropy",
               metrics=["accuracy"])
 
 # Train model.
-model.fit(images, labels, batch_size=64, epochs=10,
+model.fit(images, labels, batch_size=32, epochs=10,
           verbose=1, validation_split=0.1)
 
 # Evaluate model.
