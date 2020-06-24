@@ -45,12 +45,12 @@ model.compile(loss="categorical_crossentropy",
               metrics=["accuracy"])
 
 print("Training model...")
-model.fit(images, labels, batch_size=128, epochs=10,
+model.fit(images, labels, batch_size=128, epochs=50,
           verbose=1, validation_split=0.1)
 
 print("Evaluating model...")
 test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=1)
-print(f"Test Accuracy: {test_acc}\nTest Loss: {test_loss}")
+print(f"Test Accuracy: {test_acc * 10}\nTest Loss: {test_loss}")
 
 print("Saving model...")
 model.save("ProductDetection.model")
