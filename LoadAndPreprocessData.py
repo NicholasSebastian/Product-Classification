@@ -10,7 +10,7 @@ TEST_PATH = os.path.join(DIRECTORY, "test", "test")
 
 IMG_SIZE = 100
 
-# Generate the dataset from the training images.
+print("Generating dataset...")
 training_data = []
 for category in os.listdir(TRAIN_PATH):
     if category == ".DS_Store":
@@ -25,17 +25,17 @@ for category in os.listdir(TRAIN_PATH):
         except Exception as e:
             pass
 
-# Shuffle the dataset.
+print("Shuffling data...")
 random.shuffle(training_data)
 
-# Separate the dataset by its respective image arrays and labels.
+print("Seperating data into images and labels...")
 images = []
 labels = []
 for image_array, category in training_data:
     images.append(image_array)
     labels.append(category)
 
-# Split the arrays into 9:1, training data and testing data respectively.
+print("Splitting data for training and testing...")
 test_images = []
 test_labels = []
 ratio = int(len(images) * 0.1)
@@ -43,11 +43,17 @@ for _ in range(ratio):
     test_images.append(images.pop())
     test_labels.append(labels.pop())
 
-# Reshape image arrays.
+print("Reshaping images...")
 images = np.array(images).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
-test_images = np.array(images).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+labels = np.array(labels)
+test_images = np.array(test_images).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+test_labels = np.array(test_labels)
 
-# Store all the preprocessed data onto a file.
+print("Scaling data...")
+images /= 255.0
+test_images /= 255.0
+
+print("Saving datasets into file...")
 dataset = (images, labels, test_images, test_labels)
 dataset_pickle = open("dataset.pickle", "wb")
 pickle.dump(dataset, dataset_pickle)
