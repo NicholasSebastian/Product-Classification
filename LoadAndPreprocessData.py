@@ -8,7 +8,7 @@ DIRECTORY = "shopee-product-detection-dataset"
 TRAIN_PATH = os.path.join(DIRECTORY, "train", "train")
 TEST_PATH = os.path.join(DIRECTORY, "test", "test")
 
-IMG_SIZE = 150
+IMG_SIZE = 100
 
 # Generate the dataset from the training images.
 training_data = []

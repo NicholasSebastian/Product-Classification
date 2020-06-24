@@ -1,3 +1,4 @@
 shopee-product-detection-dataset
 *.pdf
 *.pickle
+.DS_Store
