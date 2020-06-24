@@ -1,6 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, Activation, MaxPooling2D, Dropout, Flatten, Dense
+from tensorflow.keras.utils import to_categorical
 import numpy as np
 import pickle
 
@@ -8,6 +9,9 @@ print("Reading dataset...")
 dataset_pickle = open("dataset.pickle", "rb")
 images, labels, test_images, test_labels = pickle.load(dataset_pickle)
 dataset_pickle.close()
+
+labels = to_categorical(labels)
+test_labels = to_categorical(test_labels)
 
 print("Creating model...")
 model = Sequential()
