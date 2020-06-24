@@ -53,4 +53,4 @@ test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=1)
 print(f"Test Accuracy: {test_acc * 10}\nTest Loss: {test_loss}")
 
 print("Saving model...")
-model.save("ProductDetection.model")
+model.save("Product-Detection-Model")
