@@ -50,8 +50,8 @@ test_images = np.array(test_images).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
 test_labels = np.array(test_labels)
 
 print("Scaling data...")
-images /= 255.0
-test_images /= 255.0
+images = images.astype('float32') / 255.0
+test_images = test_images.astype('float32') / 255.0
 
 print("Saving datasets into file...")
 dataset = (images, labels, test_images, test_labels)
