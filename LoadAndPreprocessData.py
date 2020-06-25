@@ -38,7 +38,7 @@ for image_array, category in training_data:
 print("Splitting data for training and testing...")
 test_images = []
 test_labels = []
-ratio = int(len(images) * 0.1)
+ratio = int(len(images) * 0.2)
 for _ in range(ratio):
     test_images.append(images.pop())
     test_labels.append(labels.pop())
