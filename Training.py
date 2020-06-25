@@ -27,8 +27,8 @@ print("Training model...")
 model.fit(images, labels, batch_size=256, epochs=15,
           verbose=1, validation_data=(test_images, test_labels), callbacks=[callback])
 
-test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=1)
-print(f"Test Accuracy: {test_acc}\nTest Loss: {test_loss}")
-
 print("Saving model...")
 model.save("ConvModel_Trained.h5")
+
+test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=1)
+print(f"Test Accuracy: {test_acc}\nTest Loss: {test_loss}")

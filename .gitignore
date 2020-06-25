@@ -2,3 +2,5 @@ shopee-product-detection-dataset
 *.pdf
 *.pickle
 .DS_Store
+__pycache__
+checkpoints
