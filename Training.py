@@ -19,9 +19,10 @@ print("Creating model...")
 model = create_conv_model(images.shape[1:])
 model.summary()
 
+# Saves training data every 5 epochs.
 checkpoint_path = "checkpoints/epoch-{epoch:03d}.ckpt"
 callback = ModelCheckpoint(filepath=checkpoint_path,
-                           save_weights_only=True, verbose=1)
+                           save_weights_only=True, period=5, verbose=1)
 
 print("Training model...")
 model.fit(images, labels, batch_size=256, epochs=15,
@@ -30,5 +31,6 @@ model.fit(images, labels, batch_size=256, epochs=15,
 print("Saving model...")
 model.save("ConvModel_Trained.h5")
 
+# Test the model's accuracy and loss on the test images and labels.
 test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=1)
 print(f"Test Accuracy: {test_acc}\nTest Loss: {test_loss}")
